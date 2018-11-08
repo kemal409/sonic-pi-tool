@@ -2,7 +2,7 @@ extern crate ansi_term;
 extern crate nix;
 extern crate rosc;
 
-use nix::unistd::execv;
+//use nix::unistd::execv;
 use std::ffi::CString;
 use std::io::{self, Read};
 use std::path::Path;
@@ -106,7 +106,7 @@ pub fn start_server() {
     match paths.iter().find(|p| Path::new(&p).exists()) {
         Some(p) => {
             let cmd = &CString::new(p.clone()).unwrap();
-            execv(cmd, &[]).expect(&format!("Unable to start {}", *p))
+            //execv(cmd, &[]).expect(&format!("Unable to start {}", *p))
         }
         None => {
             println!("I couldn't find the Sonic Pi server executable :(");
